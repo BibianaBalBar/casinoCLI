@@ -1,13 +1,14 @@
 from os import system, name
 from time import sleep
-from termcolor import colored
 from pyfiglet import figlet_format
+
+from account import Account
 
 def clear ():
     system('cls' if name =='nt' else 'clear')
 
-#temp money
-money = 100
+
+acc = Account()
 games = ['Card Game', 'Cho-han', 'Roulette', 'Blackjack', 'Slots']
 
 system('cls' if name =='nt' else 'clear')
@@ -20,6 +21,7 @@ while True:
 
     user_input = input('>> ')
 
+    #Settings and general options
     if user_input.lower() == 'games':
         print()
         for g in games:
@@ -30,11 +32,10 @@ while True:
         clear()
     if user_input.lower() == 'help':
         pass
-    if user_input.lower() == 'account' or user_input.lower() == 'balance':
-        print(f'The current balance is: {money}')
     if user_input.lower() == 'exit':
         break
 
+    #Games
     if user_input.lower() == 'dice' or user_input.lower() == 'chohan' or user_input.lower() == 'cho-han':
         pass
 
@@ -47,3 +48,6 @@ while True:
     if user_input.lower() == 'slot' or user_input.lower() == 'slots':
         pass
 
+    #Account and loans options
+    if user_input.lower() == 'account' or user_input.lower() == 'balance':
+        print(f'The current balance is: {money}')
