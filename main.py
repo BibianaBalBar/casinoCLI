@@ -1,28 +1,17 @@
-from os import system, name
 from time import sleep
-from pyfiglet import figlet_format
-
 from app.account import Account
-
-
-def clear ():
-    system('cls' if name =='nt' else 'clear')
-
+from app.modu import clear, intro, helper
+from app.games import test
 
 acc = Account()
 games = ['Card Game', 'Cho-han', 'Roulette', 'Blackjack', 'Slots']
 
-system('cls' if name =='nt' else 'clear')
-ascii = figlet_format('           Casino')
-print(ascii)
-print("For the game list type 'games'\nFor more commands type'help'\n")
-
-
+intro()
 while True:
 
     user_input = input('>> ')
 
-    #Settings and general options
+#Settings and general options
     if user_input.lower() == 'games':
         print()
         for g in games:
@@ -32,11 +21,11 @@ while True:
     if user_input.lower() == 'clear':
         clear()
     if user_input.lower() == 'help':
-        pass
+        helper()
     if user_input.lower() == 'exit':
         break
 
-    #Games
+#Games
     if user_input.lower() == 'dice' or user_input.lower() == 'chohan' or user_input.lower() == 'cho-han':
         pass
 
@@ -49,7 +38,7 @@ while True:
     if user_input.lower() == 'slot' or user_input.lower() == 'slots':
         pass
 
-    #Account and loans options
+#Account and loans options
     if user_input.lower() == 'account' or user_input.lower() == 'balance':
         acc.complete_acc()
     
@@ -70,5 +59,16 @@ while True:
             print(f'Please specify the amount.\n{amount} is not a recognized value')
         
 
-if __name__ == '__main__':
-    app.run()
+# Test game to delete after 
+    if user_input.lower() == 'test':
+        while True:
+            bet = input(f'How much to bet>> ')
+            choice = input(f'even or odd?\n>> ')
+            if choice == 'odd' or choice == 'even':
+                game = test(bet, choice)
+                acc.money += int(game)
+                cont = input('Continue?(y/n)\n>> ')
+                if cont.lower() == 'n':
+                    break
+                
+                
