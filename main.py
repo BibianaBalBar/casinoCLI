@@ -2,7 +2,8 @@ from os import system, name
 from time import sleep
 from pyfiglet import figlet_format
 
-from account import Account
+from app.account import Account
+
 
 def clear ():
     system('cls' if name =='nt' else 'clear')
@@ -50,4 +51,24 @@ while True:
 
     #Account and loans options
     if user_input.lower() == 'account' or user_input.lower() == 'balance':
-        print(f'The current balance is: {money}')
+        acc.complete_acc()
+    
+    if user_input.lower() == 'take loan':
+        amount = input(f'You can take a loan up to: {acc.max_loan}\nAmount?>> ')
+        try:
+            acc.take_loan(int(amount))
+            print(acc.check_loan())
+        except ValueError:
+            print(f'Please specify the amount.\n{amount} is not a recognized value')
+    
+    if user_input.lower() == 'pay loan':
+        amount = input(f'Your debt is: {acc.loan}\nAmount to pay?>> ')
+        try:
+            acc.pay_loan(int(amount))
+            print(acc.check_loan())
+        except ValueError:
+            print(f'Please specify the amount.\n{amount} is not a recognized value')
+        
+
+if __name__ == '__main__':
+    app.run()

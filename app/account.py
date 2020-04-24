@@ -16,7 +16,7 @@ class Account:
         return f'Current debt {self.loan}'
     
     def complete_acc(self):
-        print(f'\nComplete extract\n\nAccount:{self.money}\nDebt:{self.loan}\n')
+        print(f'\nComplete extract\nWallet:{self.money}\nDebt:{self.loan}\n')
 
     def take_loan(self, amount):
         try:
