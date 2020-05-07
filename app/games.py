@@ -1,4 +1,5 @@
-from random import randint
+from random import randint, choice
+from deck_cards import Card, Deck
 
 # Test game to delete after 
 def test(bet, choice):
@@ -18,3 +19,7 @@ def test(bet, choice):
         else:
             print('won')
             return bet
+
+
+
+# Card Game
