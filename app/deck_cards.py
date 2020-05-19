@@ -15,8 +15,8 @@ class Deck:
 
     def __init__(self):
         suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
-        values = ['A', '2', '3', '4', '5', '6',
-                  '7', '8', '9', '10', 'J', 'Q', 'K']
+        values = ['02', '03', '04', '05', '06', '07', '08', '09', '10', ' J', ' Q', ' K', ' A']
+        # for dict -> self.cards = {f'{value} of {suit}': value for value in values for suit in suits}
         self.cards = [Card(value, suit) for value in values for suit in suits]
 
     def __repr__(self):
@@ -46,10 +46,3 @@ class Deck:
         shuffle(self.cards)
         return self
 
-
-d = Deck()
-d.shuffle()
-card = d.deal_card()
-print(card)
-hand = d.deal_hand(5)
-print(hand)

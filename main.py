@@ -1,7 +1,7 @@
 from time import sleep
 from app.account import Account
 from app.modu import clear, intro, helper
-from app.games import test
+from app.games import test, pick_a_card
 
 acc = Account()
 games = ['Card Game', 'Cho-han', 'Roulette', 'Blackjack', 'Slots']
