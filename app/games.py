@@ -1,23 +1,25 @@
 from random import randint, choice
-from deck_cards import Card, Deck
+from app.deck_cards import Card, Deck
+from app.account import Account
 
 # Test game to delete after 
-def test(bet, choice):
+def cho_han(bet, choice):
     bet = int(bet)
     n = randint(1,12)
-    if choice == 'even':
+    print(f'The number is {n}.')
+    if choice.lower() == 'even':
         if n % 2 == 0:
-            print('win')
+            print('You won!')
             return bet
         else:
-            print('lose')
+            print('You lose!')
             return -bet
     else:
         if n % 2 == 0:
-            print('lose')
+            print('You lose!')
             return -bet
         else:
-            print('won')
+            print('You won!')
             return bet
 
 
@@ -62,4 +64,5 @@ def pick_a_card(bet):
         print("You lose!")
         return -bet
 
-pick_a_card(100)
+
+
