@@ -1,7 +1,7 @@
 from time import sleep
 from app.account import Account
 from app.modu import clear, intro, helper
-from app.games import pick_a_card, cho_han
+from app.games import pick_a_card, cho_han, slot, roulette
 
 acc = Account()
 games = ['Card Game', 'Cho-han', 'Roulette', 'Blackjack', 'Slots']
@@ -41,7 +41,17 @@ while True:
         pass
 
     if user_input.lower() == 'slot' or user_input.lower() == 'slots':
-        pass
+        bet = input(f'How much to bet>> ')
+        game = slot(bet)
+        acc.money += int(game)
+
+    if user_input.lower() == 'roulette' or user_input.lower() == 'roulete':
+        bet = input(f'How much to bet>> ')
+        choice = input(f'Do you bet on odd or even or a number? ')
+        game = roulette(bet, choice)
+        acc.money += int(game)
+
+    
 
 #Account and loans options
     if user_input.lower() == 'account' or user_input.lower() == 'balance':

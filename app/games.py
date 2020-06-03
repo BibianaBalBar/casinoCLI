@@ -2,7 +2,7 @@ from random import randint, choice
 from app.deck_cards import Card, Deck
 from app.account import Account
 
-# Test game to delete after 
+# Cho-han game - chose Odd or Even 
 def cho_han(bet, choice):
     bet = int(bet)
     n = randint(1,12)
@@ -24,7 +24,7 @@ def cho_han(bet, choice):
 
 
 
-# Card Game
+# Card Game - higher card wins
 def pick_a_card(bet):
     bet = int(bet)
     deck = Deck()
@@ -65,4 +65,43 @@ def pick_a_card(bet):
         return -bet
 
 
+#Slot with numbers - match 3 numbers
+def slot(bet):
+    bet = int(bet)
+    n1 = randint(1,5)
+    n2 = randint(1,5)
+    n3 = randint(1,5)
+    print(f'Your Slot numbers are: {n1} - {n2} - {n3}')
+    if n1 == n2 == n3:
+        print("You won!")
+        return bet
+    else:
+        print("You lose!")
+        return -bet
 
+
+#Roulette
+def roulette(bet, choice):
+    bet = int(bet)
+    n = randint(0, 36)
+    print(f'The number is {n}.')
+    if choice.lower() == 'even':
+        if n % 2 == 0:
+            print('You won!')
+            return bet
+        else:
+            print('You lose!')
+            return -bet
+    elif choice.lower() == 'odd':
+        if n % 2 == 0:
+            print('You lose!')
+            return -bet
+        else:
+            print('You won!')
+            return bet
+    elif choice == str(n):
+        print('You won!')
+        return bet
+    else:
+        print('You lose!')
+        return -bet
