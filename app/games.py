@@ -105,3 +105,106 @@ def roulette(bet, choice):
     else:
         print('You lose!')
         return -bet
+
+
+#Blackjack
+def blackjack(bet):
+    bet = int(bet)
+    deck = Deck()
+    deck.shuffle()
+    first_card = deck.deal_card()
+    print(f"Your first card is {first_card}")    
+    second_card = deck.deal_card()
+    print(f"Your second card is {second_card}")
+    dealer_first_card = deck.deal_card()
+    print(f"The dealer's first card is {dealer_first_card}")
+    dealer_second_card = deck.deal_card()
+    print(f"The dealer's second card is {dealer_second_card}")          
+    fcard = str(first_card)[:2]
+    def fc(fcard):
+        if fcard not in ['02', '03', '04', '05', '06', '07', '08', '09', '10']:    
+            if fcard == ' J':
+                return '11'
+            elif fcard == ' Q':
+                return '12'
+            elif fcard == ' K':
+                return '13'
+            elif fcard == ' A':
+                return '14'            
+        return fcard
+    scard = str(second_card)[:2]
+    def sc(scard):
+        if scard not in ['02', '03', '04', '05', '06', '07', '08', '09', '10']:
+            if scard == ' J':
+                return '11'
+            elif scard == ' Q':
+                return '12'
+            elif scard == ' K':
+                return '13'
+            elif scard == ' A':
+                return '14'            
+        return scard
+    dfcard = str(dealer_first_card)[:2]
+    def dfc(dfcard):
+        if dfcard not in ['02', '03', '04', '05', '06', '07', '08', '09', '10']:
+            if dfcard == ' J':
+                return '11'
+            elif dfcard == ' Q':
+                return '12'
+            elif dfcard == ' K':
+                return '13'
+            elif dfcard == ' A':
+                return '14'            
+        return dfcard
+    dscard = str(dealer_second_card)[:2]
+    def dsc(dscard):
+        if dscard not in ['02', '03', '04', '05', '06', '07', '08', '09', '10']:
+            if dscard == ' J':
+                return '11'
+            elif dscard == ' Q':
+                return '12'
+            elif dscard == ' K':
+                return '13'
+            elif dscard == ' A':
+                return '14'            
+        return dscard
+    add_your = int(fc(fcard)) + int(sc(scard))
+    add_dealer = int(dfc(dfcard)) + int(dsc(dscard))
+    print(f"You have {add_your}")    
+    print(f"The dealer have {add_dealer}")
+    if add_your == add_dealer:
+        print("It's a tie!")
+        return bet-bet
+    if add_your == 21 and add_dealer == 21:
+        print("It's a tie!")
+        return bet-bet
+    if add_your > 21 and add_dealer > 21:
+        print("It's a tie!")
+        return bet-bet
+    if add_your == 21 and add_dealer < 21:
+        print("You win!")
+        return bet
+    if add_your == 21 and add_dealer > 21:
+        print("You win!")
+        return bet
+    if add_your < 21 and add_your > add_dealer:
+        print("You win!")
+        return bet
+    if add_dealer < 21 and add_your < add_dealer:
+        print("You lose!")
+        return -bet
+    if add_your > 21 and add_dealer < add_your:
+        print("You lose!")
+        return -bet
+    if add_dealer > 21 and add_your < add_dealer:
+        print("You win!")
+        return bet
+    if add_your < 21 and add_dealer == 21:
+        print("You lose!")
+        return -bet
+    if add_your > 21 and add_dealer == 21:
+        print("You lose!")
+        return -bet
+
+
+

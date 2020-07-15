@@ -25,11 +25,25 @@ Casino with games of chances in CLI
 
         >> card
         How much to bet>> 100
-        You're card is  K of Diamonds
+        Your card is  K of Diamonds
         Computer's card is 04 of Hearts
         You won!
-        >>                                         
+        >>  
 
+        >> games
 
+        Card Game
+        Cho-han
+        Roulette
+        Blackjack
+        Slots
+        
+        >> chohan
+        How much to bet>> 100
+        Do you bet on odd or even? even
+        The number is 2.
+        You won!
+        >>                                       
 
-{work in progress}
+## Requirements: Python 3.6+, pyfiglet
+
